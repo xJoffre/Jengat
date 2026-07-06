@@ -25,6 +25,13 @@ func _ready() -> void:
 			$CustomPanel/V/Category.add_icon_item(tex, cat["label"])
 		else:
 			$CustomPanel/V/Category.add_item("%s  %s" % [cat["emoji"], cat["label"]])
+	# Las imágenes de assets/icons/ son grandes: limitarlas al alto de una fila,
+	# tanto en el desplegable de categoría como en la lista de retos.
+	var category: OptionButton = $CustomPanel/V/Category
+	category.add_theme_constant_override("icon_max_width", 40)
+	for i in category.item_count:
+		category.get_popup().set_item_icon_max_width(i, 40)
+	$CustomPanel/V/List.fixed_icon_size = Vector2i(40, 40)
 	$ConfigPanel/Sound.button_pressed = Settings.sound
 	$ConfigPanel/Volume.value = Settings.volume
 	$ConfigPanel/Volume.value_changed.connect(func(v): Audio.set_volume(v))
