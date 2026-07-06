@@ -35,6 +35,17 @@ func _ready() -> void:
 	list.fixed_icon_size = Vector2i(64, 64)
 	# Barra de scroll ancha, agarrable con el dedo.
 	list.get_v_scroll_bar().custom_minimum_size.x = 24
+	# Scroll arrastrando sobre la propia lista, como en cualquier app móvil.
+	list.gui_input.connect(_scroll_list_by_drag)
+
+func _scroll_list_by_drag(e: InputEvent) -> void:
+	if e.device == InputEvent.DEVICE_ID_EMULATION:
+		return  # eco de ratón emulado del toque: ya llega como ScreenDrag
+	var dragging: bool = e is InputEventScreenDrag \
+		or (e is InputEventMouseMotion and (e.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0)
+	if dragging:
+		var bar := ($CustomPanel/V/List as ItemList).get_v_scroll_bar()
+		bar.value -= e.relative.y
 	$ConfigPanel/Sound.button_pressed = Settings.sound
 	$ConfigPanel/Volume.value = Settings.volume
 	$ConfigPanel/Volume.value_changed.connect(func(v): Audio.set_volume(v))
