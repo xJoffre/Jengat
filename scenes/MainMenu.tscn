@@ -1,0 +1,286 @@
+[gd_scene load_steps=3 format=3 uid="uid://jengat_mainmenu"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1"]
+[ext_resource type="Texture2D" path="res://Imagenes/Logo.png" id="2"]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.05, 0.06, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+offset_top = 95.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(1, 0.62, 0.27, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 6
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+text = "Jengat"
+
+[node name="Warning" type="Label" parent="."]
+anchor_right = 1.0
+offset_top = 500.0
+offset_bottom = 540.0
+theme_override_colors/font_color = Color(0.9, 0.45, 0.45, 1)
+horizontal_alignment = 1
+text = "+18 · Solo para adultos · Bebe con responsabilidad"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 60.0
+offset_right = 160.0
+offset_bottom = 420.0
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+theme_override_font_sizes/font_size = 32
+text = "Jugar"
+
+[node name="How" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+theme_override_font_sizes/font_size = 32
+text = "Cómo jugar"
+
+[node name="Config" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+theme_override_font_sizes/font_size = 32
+text = "Configuración"
+
+[node name="Mine" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+theme_override_font_sizes/font_size = 32
+text = "Mis retos"
+
+[node name="Quit" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(0, 70)
+theme_override_font_sizes/font_size = 32
+text = "Salir"
+
+[node name="ConfigPanel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -300.0
+offset_right = 280.0
+offset_bottom = 300.0
+
+[node name="Title" type="Label" parent="ConfigPanel"]
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "Configuración"
+
+[node name="PlayersLabel" type="Label" parent="ConfigPanel"]
+anchor_right = 1.0
+offset_top = 130.0
+offset_bottom = 170.0
+horizontal_alignment = 1
+text = "Jugadores"
+
+[node name="Minus" type="Button" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = -70.0
+offset_right = -90.0
+offset_bottom = -10.0
+theme_override_font_sizes/font_size = 36
+text = "-"
+
+[node name="Count" type="Label" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = -65.0
+offset_right = 60.0
+offset_bottom = -5.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+text = "2"
+
+[node name="Plus" type="Button" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = 90.0
+offset_top = -70.0
+offset_right = 150.0
+offset_bottom = -10.0
+theme_override_font_sizes/font_size = 36
+text = "+"
+
+[node name="Sound" type="CheckButton" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 60.0
+offset_right = 90.0
+offset_bottom = 110.0
+text = "Sonido"
+
+[node name="VolumeLabel" type="Label" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 130.0
+offset_right = 120.0
+offset_bottom = 165.0
+horizontal_alignment = 1
+text = "Volumen"
+
+[node name="Volume" type="HSlider" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 175.0
+offset_right = 150.0
+offset_bottom = 195.0
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Back" type="Button" parent="ConfigPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -90.0
+offset_right = 110.0
+offset_bottom = -30.0
+theme_override_font_sizes/font_size = 28
+text = "Volver"
+
+[node name="HowToPanel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -380.0
+offset_right = 310.0
+offset_bottom = 380.0
+
+[node name="Title" type="Label" parent="HowToPanel"]
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "Cómo jugar"
+
+[node name="Rules" type="Label" parent="HowToPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 100.0
+offset_right = -30.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 26
+autowrap_mode = 2
+text = "El objetivo es no ser quien derribe la torre.
+
+• En tu turno saca un solo bloque de un nivel permitido (no de la fila superior ni de niveles sin cubrir).
+• Puedes tocar varios para tantear cuál está flojo.
+• Deja que la pieza caiga al piso: aparece tu reto. Pulsa Hecho y se apila sola arriba.
+• Pierdes si tiras la torre o si caen bloques al suelo.
+
+¡Saca las garras y que no se caiga!"
+
+[node name="Back" type="Button" parent="HowToPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -90.0
+offset_right = 110.0
+offset_bottom = -30.0
+theme_override_font_sizes/font_size = 28
+text = "Volver"
+
+[node name="CustomPanel" type="Panel" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -440.0
+offset_right = 320.0
+offset_bottom = 440.0
+
+[node name="V" type="VBoxContainer" parent="CustomPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="CustomPanel/V"]
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "Mis retos"
+
+[node name="Category" type="OptionButton" parent="CustomPanel/V"]
+custom_minimum_size = Vector2(0, 54)
+
+[node name="Text" type="LineEdit" parent="CustomPanel/V"]
+custom_minimum_size = Vector2(0, 54)
+placeholder_text = "Escribe tu reto…"
+
+[node name="Add" type="Button" parent="CustomPanel/V"]
+custom_minimum_size = Vector2(0, 58)
+theme_override_font_sizes/font_size = 28
+text = "Añadir"
+
+[node name="List" type="ItemList" parent="CustomPanel/V"]
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="CustomPanel/V"]
+theme_override_constants/separation = 16
+
+[node name="Delete" type="Button" parent="CustomPanel/V/Buttons"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Borrar"
+
+[node name="Back" type="Button" parent="CustomPanel/V/Buttons"]
+custom_minimum_size = Vector2(0, 56)
+size_flags_horizontal = 3
+text = "Volver"

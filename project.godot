@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Jengat"
+config/description="Jenga + gato. Juego de fiesta para adultos."
+run/main_scene="res://scenes/Splash.tscn"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.06, 0.05, 0.06, 1)
+boot_splash/show_image=false
+config/icon="res://Imagenes/Logo.png"
+
+[autoload]
+
+Settings="*res://scripts/settings.gd"
+Audio="*res://scripts/audio.gd"
+Custom="*res://scripts/custom_challenges.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/size/window_width_override=405
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[filesystem]
+
+import/blender/enabled=false
+
+[gui]
+
+theme/custom="res://ui/theme.tres"
+
+[physics]
+
+common/physics_ticks_per_second=60
+3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=12
+jolt_physics_3d/simulation/position_steps=4
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

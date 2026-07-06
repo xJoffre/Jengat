@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://jengat_bush"]
+
+[sub_resource type="StandardMaterial3D" id="bush_mat"]
+albedo_color = Color(0.06, 0.13, 0.08, 1)
+roughness = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="bush_mesh"]
+material = SubResource("bush_mat")
+radius = 0.4
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[node name="Bush" type="Node3D"]
+
+[node name="A" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("bush_mesh")
+
+[node name="B" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.32, 0.2, 0.1)
+mesh = SubResource("bush_mesh")
+
+[node name="C" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.28, 0.18, -0.12)
+mesh = SubResource("bush_mesh")

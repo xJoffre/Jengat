@@ -1,0 +1,94 @@
+{
+  "version": 3,
+  "deck_name": "Jengat — Picante (adultos)",
+  "language": "es",
+  "assignment_mode": "mixto",
+  "total_blocks": 54,
+  "tower": {
+    "levels": 18,
+    "blocks_per_level": 3,
+    "note": "Cada nivel tiene 3 bloques. La columna 'izquierda' es el bloque izquierdo de cada nivel, 'central' el del medio y 'derecha' el derecho. El reto está fijo en cada bloque."
+  },
+  "type_legend": {
+    "trago": "El jugador bebe / hace un shot.",
+    "reto": "Acción social o atrevida que debe cumplir.",
+    "comodin": "Efecto especial del juego; ver campo 'effect'."
+  },
+  "category_legend": {
+    "trago": "Beber / shots.",
+    "beso": "Besos y coqueteo físico.",
+    "atrevido": "Atrevido / picante / quitarse ropa.",
+    "verdad": "Verdad, confesión o pregunta.",
+    "grupal": "Implica a varios o a todo el grupo.",
+    "especial": "Comodín con efecto de juego."
+  },
+  "effect_legend": {
+    "vuelve_a_tirar": "Turno extra: el jugador saca otro bloque.",
+    "redirige_derecha": "El jugador de la derecha bebe en tu lugar.",
+    "redirige_izquierda": "El jugador de la izquierda bebe en tu lugar.",
+    "a_salvo": "Sin penalización este turno.",
+    "hidratate": "Bebes agua (descanso), sin alcohol."
+  },
+  "columns": {
+    "izquierda": [
+      { "pos": 1,  "text": "Dale una nalgada a alguien", "type": "reto", "category": "atrevido" },
+      { "pos": 2,  "text": "Termina tu bebida", "type": "trago", "category": "trago" },
+      { "pos": 3,  "text": "Verdad o reto", "type": "reto", "category": "verdad" },
+      { "pos": 4,  "text": "Derecha → bebe", "type": "comodin", "effect": "redirige_derecha", "category": "especial" },
+      { "pos": 5,  "text": "Quítate 1 prenda", "type": "reto", "category": "atrevido" },
+      { "pos": 6,  "text": "Vuelve a tirar", "type": "comodin", "effect": "vuelve_a_tirar", "category": "especial" },
+      { "pos": 7,  "text": "Toma un shot de gelatina", "type": "trago", "category": "trago" },
+      { "pos": 8,  "text": "Pon una canción", "type": "reto", "category": "grupal" },
+      { "pos": 9,  "text": "¡Shot!", "type": "trago", "category": "trago" },
+      { "pos": 10, "text": "Posición sexual favorita", "type": "reto", "category": "verdad" },
+      { "pos": 11, "text": "Las chicas toman un shot", "type": "trago", "category": "grupal" },
+      { "pos": 12, "text": "Besa a tu crush", "type": "reto", "category": "beso" },
+      { "pos": 13, "text": "Shot", "type": "trago", "category": "trago" },
+      { "pos": 14, "text": "Alguien elige tu shot", "type": "trago", "category": "trago" },
+      { "pos": 15, "text": "7 minutos en el cielo", "type": "reto", "category": "atrevido" },
+      { "pos": 16, "text": "Dos verdades y una mentira", "type": "reto", "category": "verdad" },
+      { "pos": 17, "text": "Bebe por cada ex que tengas", "type": "trago", "category": "trago" },
+      { "pos": 18, "text": "Intercambia una prenda con quien elija el grupo", "type": "reto", "category": "atrevido" }
+    ],
+    "central": [
+      { "pos": 1,  "text": "Shot", "type": "trago", "category": "trago" },
+      { "pos": 2,  "text": "Izquierda ← bebe", "type": "comodin", "effect": "redirige_izquierda", "category": "especial" },
+      { "pos": 3,  "text": "Elige a alguien para que tome un shot", "type": "trago", "category": "grupal" },
+      { "pos": 4,  "text": "¡Salud! Todos beben", "type": "trago", "category": "grupal" },
+      { "pos": 5,  "text": "¿Has tenido sexo en un coche? Bebe", "type": "reto", "category": "verdad" },
+      { "pos": 6,  "text": "Verdad o reto", "type": "reto", "category": "verdad" },
+      { "pos": 7,  "text": "Cuenta un secreto", "type": "reto", "category": "verdad" },
+      { "pos": 8,  "text": "Hidrátate", "type": "comodin", "effect": "hidratate", "category": "especial" },
+      { "pos": 9,  "text": "Toma un shot de gelatina roja", "type": "trago", "category": "trago" },
+      { "pos": 10, "text": "Bebe si tienes un tatuaje", "type": "trago", "category": "trago" },
+      { "pos": 11, "text": "Body shot (tomar un shot del cuerpo de alguien)", "type": "reto", "category": "atrevido" },
+      { "pos": 12, "text": "¡Estás a salvo!", "type": "comodin", "effect": "a_salvo", "category": "especial" },
+      { "pos": 13, "text": "Shot", "type": "trago", "category": "trago" },
+      { "pos": 14, "text": "Yo nunca nunca...", "type": "reto", "category": "grupal" },
+      { "pos": 15, "text": "2 shots", "type": "trago", "category": "trago" },
+      { "pos": 16, "text": "Bebe de un trago durante 10 segundos", "type": "trago", "category": "trago" },
+      { "pos": 17, "text": "Twerk de 10 segundos o bebe", "type": "reto", "category": "atrevido" },
+      { "pos": 18, "text": "El grupo te hace una pregunta picante y debes responder", "type": "reto", "category": "verdad" }
+    ],
+    "derecha": [
+      { "pos": 1,  "text": "Beso o bofetada", "type": "reto", "category": "beso" },
+      { "pos": 2,  "text": "Verdad o reto (persona de la izquierda)", "type": "reto", "category": "verdad" },
+      { "pos": 3,  "text": "Revisa un teléfono durante 30 segundos", "type": "reto", "category": "atrevido" },
+      { "pos": 4,  "text": "Da un baile en el regazo (lap dance)", "type": "reto", "category": "atrevido" },
+      { "pos": 5,  "text": "Confesión", "type": "reto", "category": "verdad" },
+      { "pos": 6,  "text": "¿Te lo ligarías o lo rechazas? (Smash or Pass)", "type": "reto", "category": "verdad" },
+      { "pos": 7,  "text": "¡Estás a salvo!", "type": "comodin", "effect": "a_salvo", "category": "especial" },
+      { "pos": 8,  "text": "Los chicos toman un shot", "type": "trago", "category": "grupal" },
+      { "pos": 9,  "text": "Shot", "type": "trago", "category": "trago" },
+      { "pos": 10, "text": "Los solteros beben", "type": "trago", "category": "grupal" },
+      { "pos": 11, "text": "Las parejas beben", "type": "trago", "category": "grupal" },
+      { "pos": 12, "text": "¡Todos beben!", "type": "trago", "category": "grupal" },
+      { "pos": 13, "text": "Toma un shot de gelatina azul", "type": "trago", "category": "trago" },
+      { "pos": 14, "text": "Perrea o bebe de un trago", "type": "reto", "category": "atrevido" },
+      { "pos": 15, "text": "Haz un \"blow-job shot\" (nombre de un tipo de shot/cóctel)", "type": "trago", "category": "trago" },
+      { "pos": 16, "text": "Manda un mensaje de voz coqueto a tu crush", "type": "reto", "category": "atrevido" },
+      { "pos": 17, "text": "¡Doble shot para ti!", "type": "trago", "category": "trago" },
+      { "pos": 18, "text": "Elige: un beso en el cuello a alguien o 3 shots", "type": "reto", "category": "beso" }
+    ]
+  }
+}
