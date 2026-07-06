@@ -149,6 +149,13 @@ func _dust_at(pos: Vector3) -> void:
 # Tensión: tiembla por el movimiento real de la torre, más un balanceo base que
 # crece según cuántas piezas se han sacado (la torre cada vez más inestable).
 func _update_shake() -> void:
+	# Con una pieza agarrada, nada de shake: el arrastre se calcula con un rayo
+	# desde la cámara, y el temblor se realimentaba a la física de la pieza.
+	if _grabbed:
+		if _shake_offset != Vector3.ZERO:
+			_shake_offset = Vector3.ZERO
+			_update_camera()
+		return
 	var motion := 0.0
 	for b in _blocks:
 		if b == _grabbed:
