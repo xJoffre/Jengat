@@ -3,7 +3,7 @@ extends RigidBody3D
 # Un bloque de la torre. La interacción (raycast, qué bloque se agarra) la
 # maneja game.gd; aquí solo está el comportamiento de "tirar con el dedo".
 # ponytail: physics-grab clásico. PULL_STRENGTH es el knob a afinar en pulido.
-const PULL_STRENGTH := 6.0
+const PULL_STRENGTH := 4.5
 
 var _grabbed := false
 var _grab_distance := 0.0

@@ -50,7 +50,6 @@ var _wood_tex: Texture2D = null  # si existe assets/textures/wood.png, los bloqu
 @onready var _camera: Camera3D = $Camera3D
 
 var _scores: Array[int] = []  # retos cumplidos por jugador
-var _shake_offset := Vector3.ZERO  # sacudida de cámara por tensión
 
 func _ready() -> void:
 	Audio.music("game")
@@ -108,7 +107,7 @@ func _build_tower() -> void:
 func _shade(b: RigidBody3D) -> void:
 	var mesh := b.get_node("Mesh") as MeshInstance3D
 	var mat: StandardMaterial3D = mesh.mesh.material.duplicate()
-	mat.albedo_color = mat.albedo_color.darkened(randf() * 0.18)
+	mat.albedo_color = mat.albedo_color.darkened(randf() * 0.1)
 	if _wood_tex:
 		mat.albedo_texture = _wood_tex
 	mesh.material_override = mat
@@ -136,7 +135,6 @@ func _physics_process(_delta: float) -> void:
 		if cand != null:
 			_pending_piece = cand
 			_show_challenge(cand)
-	_update_shake()
 
 # Polvo + vibración leve en el punto donde se saca una pieza.
 func _dust_at(pos: Vector3) -> void:
@@ -145,29 +143,6 @@ func _dust_at(pos: Vector3) -> void:
 	d.restart()
 	d.emitting = true
 	Input.vibrate_handheld(20)
-
-# Tensión: tiembla por el movimiento real de la torre, más un balanceo base que
-# crece según cuántas piezas se han sacado (la torre cada vez más inestable).
-func _update_shake() -> void:
-	# Con una pieza agarrada, nada de shake: el arrastre se calcula con un rayo
-	# desde la cámara, y el temblor se realimentaba a la física de la pieza.
-	if _grabbed:
-		if _shake_offset != Vector3.ZERO:
-			_shake_offset = Vector3.ZERO
-			_update_camera()
-		return
-	var motion := 0.0
-	for b in _blocks:
-		if b == _grabbed:
-			continue
-		motion = max(motion, b.linear_velocity.length())
-	var intensity := clampf(motion - 0.4, 0.0, 2.0)
-	if intensity > 0.01:
-		_shake_offset = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)) * intensity * 0.03
-		_update_camera()
-	elif _shake_offset != Vector3.ZERO:
-		_shake_offset = Vector3.ZERO
-		_update_camera()
 
 # Pieza lista para apilar: soltada (no en la mano), fuera de su sitio y QUIETA
 # (ya cayó/asentó). Mientras se mueve, no se puede apilar.
@@ -402,7 +377,7 @@ func _set_zoom(r: float) -> void:
 
 func _update_camera() -> void:
 	var dir := Vector3(cos(_pitch) * sin(_yaw), sin(_pitch), cos(_pitch) * cos(_yaw))
-	_camera.position = PIVOT + dir * _radius + _shake_offset
+	_camera.position = PIVOT + dir * _radius
 	_camera.look_at(PIVOT)
 
 func _unhandled_input(event: InputEvent) -> void:
