@@ -9,6 +9,8 @@ var _next := 0.0
 
 func _ready() -> void:
 	_base = _light.light_energy
+	# Antorcha apagada (escena de día): sin parpadeo que procesar.
+	set_process(_light.visible)
 
 func _process(delta: float) -> void:
 	# ponytail: objetivo aleatorio cada 0.1 s + interpolación. randf() por frame

@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" path="res://scenes/Bottle.tscn" id="9"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
-sky_top_color = Color(0.02, 0.03, 0.08, 1)
-sky_horizon_color = Color(0.08, 0.09, 0.14, 1)
-sky_energy_multiplier = 0.7
-ground_bottom_color = Color(0.02, 0.02, 0.03, 1)
-ground_horizon_color = Color(0.05, 0.06, 0.1, 1)
+sky_top_color = Color(0.3, 0.5, 0.85, 1)
+sky_horizon_color = Color(0.72, 0.8, 0.92, 1)
+sky_energy_multiplier = 1.0
+ground_bottom_color = Color(0.3, 0.32, 0.35, 1)
+ground_horizon_color = Color(0.6, 0.65, 0.7, 1)
 sun_angle_max = 5.0
 
 [sub_resource type="Sky" id="sky"]
@@ -23,11 +23,11 @@ sky_material = SubResource("sky_mat")
 
 [sub_resource type="Environment" id="env"]
 background_mode = 2
-background_color = Color(0.04, 0.05, 0.08, 1)
+background_color = Color(0.5, 0.6, 0.75, 1)
 sky = SubResource("sky")
 ambient_light_source = 3
-ambient_light_color = Color(0.3, 0.31, 0.38, 1)
-ambient_light_energy = 2.0
+ambient_light_color = Color(0.8, 0.82, 0.85, 1)
+ambient_light_energy = 1.5
 tonemap_mode = 2
 tonemap_white = 1.5
 glow_enabled = true
@@ -35,8 +35,8 @@ glow_intensity = 0.5
 glow_bloom = 0.15
 glow_hdr_threshold = 0.9
 fog_enabled = true
-fog_light_color = Color(0.05, 0.07, 0.12, 1)
-fog_density = 0.03
+fog_light_color = Color(0.65, 0.72, 0.85, 1)
+fog_density = 0.01
 fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="moon_mat"]
@@ -130,38 +130,26 @@ environment = SubResource("env")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1960812070]
 transform = Transform3D(0.7, -0.5, 0.5, 0, 0.7, 0.7, -0.7, -0.5, 0.5, 2, 4, 2)
-light_color = Color(0.65, 0.72, 0.95, 1)
-light_energy = 1.3
+light_color = Color(1, 0.96, 0.88, 1)
+light_energy = 1.2
 shadow_enabled = true
 
 [node name="FillLight" type="DirectionalLight3D" parent="." unique_id=673581696]
 transform = Transform3D(-0.707, 0, 0.707, 0.495, 0.707, 0.495, -0.5, 0.7, -0.5, -2, 4, -2)
-light_color = Color(0.5, 0.58, 0.82, 1)
-light_energy = 0.5
+light_color = Color(0.75, 0.8, 0.9, 1)
+light_energy = 0.4
 
 [node name="CampfireXp" parent="." unique_id=1138566095 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 0)
 
-[node name="Light" parent="CampfireXp" index="2"]
-light_energy = 5.0
-
 [node name="CampfireXn" parent="." unique_id=1003913892 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 0)
-
-[node name="Light" parent="CampfireXn" index="2"]
-light_energy = 5.0
 
 [node name="CampfireZp" parent="." unique_id=771236096 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
 
-[node name="Light" parent="CampfireZp" index="2"]
-visible = false
-
 [node name="CampfireZn" parent="." unique_id=183822314 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
-
-[node name="Light" parent="CampfireZn" index="2"]
-visible = false
 
 [node name="Forest" type="Node3D" parent="." unique_id=929207344]
 
@@ -546,8 +534,3 @@ shape = SubResource("wall_z_shape")
 [node name="WallZnMesh" type="MeshInstance3D" parent="Walls" unique_id=389998959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -8)
 mesh = SubResource("wall_z_mesh")
-
-[editable path="CampfireXp"]
-[editable path="CampfireXn"]
-[editable path="CampfireZp"]
-[editable path="CampfireZn"]

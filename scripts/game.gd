@@ -375,9 +375,11 @@ func _do_stack(piece: RigidBody3D) -> void:
 	# Si otra pieza invadió el hueco, teleportar ahí interpenetra y el solver la
 	# expulsa violentamente (tira la torre "sola"): mejor soltarla desde arriba.
 	if _slot_occupied(piece, target, rotated):
-		target.y += BLOCK_H * 2.0
+		target.y += BLOCK_H
+	target.y += 0.01  # holgura mínima: apoyada, no incrustada
 	piece.rotation = Vector3(0, deg_to_rad(90), 0) if rotated else Vector3.ZERO
 	piece.position = target
+	piece.sleeping = true  # colocada en reposo: sin golpe que sacuda la torre
 	piece.set_meta("home", target)  # nuevo sitio: no recontar al moverla
 	piece.set_meta("removed", false)
 	piece.set_meta("level", level)
