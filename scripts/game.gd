@@ -30,6 +30,8 @@ var _deck: ChallengeDeck
 # Cámara en órbita alrededor de la torre. Arrastrar el vacío la rota.
 const PIVOT := Vector3(0, 2.5, 0)
 const ORBIT_SPEED := 0.008  # knob: sensibilidad de rotación
+const ZOOM_MIN := 4.0
+const ZOOM_MAX := 14.0
 
 var _blocks: Array[RigidBody3D] = []
 var _initial_top := 0.0
@@ -390,6 +392,10 @@ func _slot_occupied(piece: RigidBody3D, target: Vector3, rotated: bool) -> bool:
 	q.exclude = [piece.get_rid()]
 	return not get_world_3d().direct_space_state.intersect_shape(q, 1).is_empty()
 
+func _set_zoom(r: float) -> void:
+	_radius = clampf(r, ZOOM_MIN, ZOOM_MAX)
+	_update_camera()
+
 func _update_camera() -> void:
 	var dir := Vector3(cos(_pitch) * sin(_yaw), sin(_pitch), cos(_pitch) * cos(_yaw))
 	_camera.position = PIVOT + dir * _radius + _shake_offset
@@ -399,6 +405,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	# En Android cada toque llega dos veces: como ScreenTouch/Drag y como ratón
 	# emulado. Descarta el eco (doble grab, órbita a doble velocidad).
 	if event.device == InputEvent.DEVICE_ID_EMULATION:
+		return
+	# Zoom: pellizco de dos dedos en móvil (gesto magnify), rueda en escritorio.
+	if event is InputEventMagnifyGesture:
+		_set_zoom(_radius / event.factor)
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP:
+		_set_zoom(_radius - 0.5)
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		_set_zoom(_radius + 0.5)
 		return
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if event.pressed:

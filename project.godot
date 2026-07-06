@@ -43,6 +43,10 @@ import/blender/enabled=false
 
 theme/custom="res://ui/theme.tres"
 
+[input_devices]
+
+pointing/android/enable_pan_and_scale_gestures=true
+
 [physics]
 
 common/physics_ticks_per_second=60
