@@ -162,7 +162,6 @@ func _update_shake() -> void:
 			continue
 		motion = max(motion, b.linear_velocity.length())
 	var intensity := clampf(motion - 0.4, 0.0, 2.0)
-	intensity = max(intensity, clampf(_stacked - 4, 0, 12) * 0.035)
 	if intensity > 0.01:
 		_shake_offset = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)) * intensity * 0.03
 		_update_camera()
@@ -286,10 +285,6 @@ func _show_challenge(piece: RigidBody3D) -> void:
 	var cat: Dictionary = Custom.category(Custom.cat_id_of(c))
 	$UI/ChallengeCard/Card/Player.text = _players[_turn]
 	$UI/ChallengeCard/Card/CardText.text = c.get("text", "(sin reto)")
-	# Categoría (sin emoji, ya va el icono grande arriba).
-	var kind: Label = $UI/ChallengeCard/Card/Kind
-	kind.text = String(cat["label"]).to_upper()
-	kind.add_theme_color_override("font_color", cat["color"])
 	# Icono grande: tu imagen si existe (animada si es spritesheet), si no el emoji.
 	var frames: Array = Custom.icon_frames(cat["id"])
 	var icon_rect: TextureRect = $UI/ChallengeCard/Card/Icon

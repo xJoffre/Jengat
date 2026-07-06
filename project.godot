@@ -51,8 +51,8 @@ pointing/android/enable_pan_and_scale_gestures=true
 
 common/physics_ticks_per_second=60
 3d/physics_engine="Jolt Physics"
-jolt_physics_3d/simulation/velocity_steps=12
-jolt_physics_3d/simulation/position_steps=4
+jolt_physics_3d/simulation/velocity_steps=16
+jolt_physics_3d/simulation/position_steps=6
 
 [rendering]
 
