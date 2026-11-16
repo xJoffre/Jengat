@@ -2,6 +2,13 @@
 
 Juego de fiesta 3D para Android (Jenga + gato). Cada jugador saca un bloque de una torre con física real, cumple el reto que trae y pasa el teléfono; si la torre cae, pierde. Contenido para mayores de 18 años.
 
+<p align="center">
+  <img src="img/menu.jpg" width="240" alt="Menú principal de Jengat: un gato low poly junto a la torre y los botones Jugar, Cómo jugar, Configuración, Mis retos y Salir">
+  <img src="img/partida.jpg" width="240" alt="Partida en curso: la torre de 54 bloques en el campamento, turno del jugador 1">
+</p>
+
+**Descargar**: [APK para Android 7 o superior](https://github.com/xJoffre/Jengat/releases/latest) (firmado con la clave de depuración, así que Android pide permitir la instalación de origen desconocido).
+
 ## Qué tiene
 
 - **Física**: torre de 54 bloques (18 niveles de 3) hecha con `RigidBody3D` y Jolt Physics, arrastre táctil, cámara orbital, zoom con pellizco y detección de caída.
